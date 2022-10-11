@@ -108,27 +108,19 @@ let dishes = [
 
 
 
-//10. Create a function that will use advanced array methods on the 'dishes' array and 
-// return the result ["Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"]
+//12. Create a function that will return the total serving count of all dishes.
+//Must use Reduce, not a loop.
 
-function problemTenA(){
-    let veg = dishes.filter(function(el){
-        if (el.cuisine === "Vegetarian"){
-            return true;
-        } else {
-            return false;
-        }
+function problemTwelve(){
+    let servings = dishes.map(function(el){
+        return el.servings;
     })
-    return veg;
+
+    let sum = servings.reduce(function(total, el){
+        return total + el;
+    })
+    return sum;
 }
 
-function problemTenB(callback){
-    let veg = callback();
-    let results = veg.map(function(el){
-        return el.cuisine + " " + el.name;
-    })
-    return results
-}
-
-let vegetarianCuisineAndDishName = problemTenB(problemTenA);
-console.log("Problem 10: Vegetarian Cuisine and Name:", vegetarianCuisineAndDishName);
+let sumOfServings = problemTwelve();
+console.log("Bonus Problem 12: Sum of all servings", sumOfServings)
