@@ -199,24 +199,74 @@ console.log("Problem Three: Italian Cuisine, Serving Greater Than Five:", italia
 //4. Create a function that will return only dishes whose id number matches their serving count.
 //Filter
 
+function problemFour(){
+    let results = dishes.filter(function(el){
+        if (el.id === el.servings){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    return results;
+}
 
+let dishIdMatchingServes = problemFour();
+console.log("Problem Four: Dish ID Matching Serving Count:", dishIdMatchingServes);
 
 //5. Create a function that will return only dishes whose serving count is even.
 //Filter
 
+function problemFive(){
+    let results = dishes.filter(function(el){
+        if (el.servings % 2 == 0){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    return results;
+}
 
+let evenServingCount = problemFive();
+console.log("Problem Five: Even Number Serving Count:", evenServingCount);
 
 //6. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
 //Hint: You do not want to check the array's indexes to find out what the array INCLUDES.
 //Double Hint: Research 'javascript does array include item'
 //Filter
 
+function problemSix(){
+    let results = dishes.filter(function(el){
+        if (el.ingredients.includes("chickpea")){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    return results;
+}
 
+let dishesContainingChickPeas = problemSix();
+console.log("Problem Six: Dishes Including 'chickpea':", dishesContainingChickPeas);
 
-//7. Create a function that will prompt the user to type the name of one ingredient. Then use a filter to find all the dishes whose ingredients array INCLUDES that ingredient. Return the new array.
+//7. Create a function that will prompt the user to type the name of one ingredient. 
+// Then use a filter to find all the dishes whose ingredients array INCLUDES that ingredient. Return the new array.
 //Filter
 
+function problemSeven(){
+    let userInput = prompt("Please enter an ingredient.");
+    let results = dishes.filter(function(el){
+        if (el.ingredients.includes(userInput)){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    return results;
+}
 
+let ingredientsInDishes = problemSeven();
+console.log("Problem Seven: Enter ingrident to find dishes containing ingridient", ingredientsInDishes);
 
 //8a. Create a function that will return an array of the string cuisine types. Ie, ["Italian", "Italian", "Mexican", ...]
 //Map
