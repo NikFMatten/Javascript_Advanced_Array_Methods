@@ -116,10 +116,11 @@ let dishes = [
 //IMPORTANT: Take the time to step through this example function with a breakpoint until you could explain what is going on to someone else before starting this lab.
 
 function filterExample(){
-    //Debug tip: Use a console.log(el) inside the filter function to get a visualization of what el represents and see all its properties! This helps you to know what you can access with dot notation inside the filter. Do this every time you use a .filter or else you are working in the dark!
+    //Debug tip: Use a console.log(el) inside the filter function to get a visualization of what el represents and see all its properties! This helps you to know what you 
+    // can access with dot notation inside the filter. Do this every time you use a .filter or else you are working in the dark!
     let results;
     results = dishes.filter(function(el){
-        console.log("el inside filterExample's filter: ", el)
+        // console.log("el inside filterExample's filter: ", el)
         if(el.cuisine === "Mexican"){
             return true;
         }
@@ -131,7 +132,7 @@ function filterExample(){
 }
 
 let mexicanFood = filterExample();
-console.log('mexicanFood from filterExample', mexicanFood)
+console.log('mexicanFood from filterExample', mexicanFood);
 
 
 
@@ -140,21 +141,60 @@ console.log('mexicanFood from filterExample', mexicanFood)
 //Filter
 
 function problemOne(){
-
     let results;
-
+    results = dishes.filter(function(el){
+        if (el.cuisine === "Vegetarian"){
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
     return results;
 }
 
+let vegetarianFood = problemOne();
+console.log('Problem One: Vegetarian dishes:', vegetarianFood);
+
 //2. Create a function that will prompt the user to enter a cuisine type and then return all dishes that match that type
 //Filter
+function problemTwo(){
+    let userInput = prompt("Please enter a cuisine type.");
+    let results = dishes.filter(function(el){
+        if (el.cuisine === userInput){
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+   return results;
+}
 
-
+let userCuisineChoice = problemTwo();
+console.log("Problem Two: User's Cuisine Choice:", userCuisineChoice);
 
 //3. Create a function that will return all dishes with the cuisine type of "Italian" and a serving size greater than 5.
 //Filter
+function problemThree(){
+    let results = dishes.filter(function(el){
+        if (el.cuisine === "Italian") {
+            if (el.servings > 5) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    })
+return results;
+}
 
-
+let italianServingFive = problemThree();
+console.log("Problem Three: Italian Cuisine, Serving Greater Than Five:", italianServingFive);
 
 //4. Create a function that will return only dishes whose id number matches their serving count.
 //Filter
