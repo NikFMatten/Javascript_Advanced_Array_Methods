@@ -371,3 +371,15 @@ let sumOfServings = problemTwelve();
 console.log("Bonus Problem 12: Sum of all servings", sumOfServings)
 
 //13. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
+
+function problemThirteen(keyFn){
+    let results = new Set();
+    return dishes.filter(function(el){
+        let key = keyFn(el), isNew = !results.has(key);
+        if (isNew) results.add(key);
+        return isNew
+    })
+}
+
+let uniqueCuisineTypes = problemThirteen(results => results.cuisine);
+console.log("Bonus Problem 13: Unique Cuisine Types", uniqueCuisineTypes)
